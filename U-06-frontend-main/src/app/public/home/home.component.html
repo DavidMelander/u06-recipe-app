@@ -1,0 +1,36 @@
+
+<div class="container">
+  <h1>{{ pageTitle }}</h1>
+  <div class="form-group">
+    <label> Sök på Mat</label>
+    <input type="text" class="form-control" placeholder="Sök på maträtter" [(ngModel)]="inputFilter" />
+  </div>
+  <div class="form-group my-2">
+    <label for="exampleFormControlSelect1">Allergier</label>
+    <div class="select-filter-container">
+      <select [(ngModel)]="selectFilter" class="form-control" id="exampleFormControlSelect1">
+        <option value="gluten-free">Gluten</option>
+        <option value="peanut-free">Nötter</option>
+        <option value="vegetarian">Vegetarian</option>
+      </select>
+      <button *ngIf="selectFilter" class="btn btn-link" style="text-decoration: none; color:black;" (click)="resetSelectFilter()">X</button>
+    </div>
+  </div>
+  <div class="form-group">
+    <button (click)="searchRecipes()">Sök</button>
+  </div>
+  
+  <!-- </form> -->
+</div>
+<div class="container" *ngIf="filteredFood.length > 0">
+  <div class="card mb-2" *ngFor="let food of filteredFood">
+    <img src="{{food.image}}" class="card-img-top" alt="{{ food.label}}">
+    <div class="card-body">
+      <h5 class="card-title">{{ food.label }}</h5>
+      <p class="card-text">Source: {{ food.source }}</p>
+      <a [href]="food.url" class="btn btn-primary">View Recipe</a>
+    </div>
+  </div>
+</div>
+
+

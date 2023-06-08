@@ -1,0 +1,16 @@
+<nav class="navbar navbar-dark bg-dark mb-4" style="display: block;">
+  <ul class="navbar-nav mr-auto" style="text-align: center; justify-content: center; align-items: center;" >
+    <li class="nav-item active" style="display: flex;">
+      <a class="nav-link" style="color: white; margin: 0 0.5rem;" routerLink="/">Home</a>
+      <a class="nav-link" style="color: white; margin: 0 0.5rem;" routerLink="/register" *ngIf=!isLoggedIn()>Register</a>
+      <a class="nav-link" style="color: white; margin: 0 0.5rem;" routerLink="/login" *ngIf=!isLoggedIn()>Login</a>
+      <a class="nav-link" style="color: white; margin: 0 0.5rem;" routerLink="/logout" *ngIf=isLoggedIn()>Logout</a>
+    </li>
+  </ul>
+</nav>
+
+<div class="container">
+  <div class="d-flex justify-content-center align-items-center">
+    <router-outlet></router-outlet>
+  </div>
+</div>
